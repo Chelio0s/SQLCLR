@@ -5,6 +5,7 @@ using System.Data.SqlTypes;
 using System.IO;
 using System.Text;
 using Microsoft.SqlServer.Server;
+using System.Collections.Generic;
 
 [Serializable]
 [SqlUserDefinedAggregate(
@@ -14,20 +15,25 @@ using Microsoft.SqlServer.Server;
     IsInvariantToOrder = false, //optimizer property  
     MaxByteSize = 8000)] //maximum size in bytes of persisted value  
 
+
+
 public struct concatNoDuplicate:IBinarySerialize
 {
     /// <summary>  
     /// The variable that holds the intermediate result of the concatenation  
     /// </summary>  
     private StringBuilder intermediateResult;
-
+    private SortedSet<string> set;
     /// <summary>  
     /// Initialize the internal data structures  
     /// </summary>  
     public void Init()
     {
         this.intermediateResult = new StringBuilder();
+        this.set = new SortedSet<string>(); 
     }
+
+    
 
     /// <summary>  
     /// Accumulate the next value, not if the value is null  
@@ -39,7 +45,11 @@ public struct concatNoDuplicate:IBinarySerialize
         {
             return;
         }
-
+        if (set.Contains(value.Value))
+        {
+            return;
+        }
+        set.Add(value.Value);
         this.intermediateResult.Append(value.Value).Append(',');
     }
 
