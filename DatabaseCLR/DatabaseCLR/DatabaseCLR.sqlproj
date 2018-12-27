@@ -57,16 +57,25 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="EntityParseEquipment" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="concat.cs" />
     <Compile Include="MySUM.cs" />
     <Compile Include="concatNoDuplicate.cs" />
-    <Compile Include="Distinct.cs" />
+    <Compile Include="ParseEquipment.cs" />
+    <Compile Include="EntityParseEquipment\EquipmentOnGroup.cs" />
+    <Compile Include="EntityParseEquipment\UniqueKOB.cs" />
+    <Compile Include="EntityParseEquipment\FinalEquip.cs" />
+    <Compile Include="EntityParseEquipment\NeedEquip.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="SelectEquipmentInGroups.sql" />
   </ItemGroup>
 </Project>
