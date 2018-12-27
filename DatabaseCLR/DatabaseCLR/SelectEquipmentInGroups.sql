@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [SelectEquipmentInGroups]
+﻿-- Процедура, вызывает CLR процедуру на создание оборудования и 
+-- распределение его по группам, затем выводит эту красоту на экран
+
+CREATE PROCEDURE [SelectEquipmentInGroups]
 	-- Add the parameters for the stored procedure here
 
 AS
