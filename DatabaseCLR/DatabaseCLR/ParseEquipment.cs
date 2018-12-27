@@ -68,7 +68,7 @@ public partial class StoredProcedures
         List<FinalEquip> finalList = new List<FinalEquip>();
         foreach (var neq in needEq)
         {
-            var equipInSite = uniq.Where(x => x.Site_ID == neq.Site_ID).ToList();
+            var equipInSite = uniq.Where(x => x.Site_ID == neq.Site_ID && x.KOB == neq.KOB).ToList();
             foreach (var item in equipInSite)
             {
                 var f = new FinalEquip()
