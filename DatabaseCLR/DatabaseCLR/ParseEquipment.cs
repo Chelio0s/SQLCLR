@@ -59,7 +59,7 @@ public partial class StoredProcedures
         }
     }
 
-
+    //Метод получения финальных данных
     private static List<FinalEquip> GetFinalList(List<NeedEquip> needEq, List<UniqueKOB> uniq)
     {
         List<FinalEquip> finalList = new List<FinalEquip>();
