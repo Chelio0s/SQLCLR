@@ -1,11 +1,8 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using DatabaseCLR;
 using System.Linq;
-using System;
 
 public partial class StoredProcedures
 {
@@ -25,8 +22,9 @@ public partial class StoredProcedures
         var final = GetFinalList(needEq, uniq);
 
         InsertInTemp(final);
-       
     }
+
+    static readonly string conntectStr = "context connection=true";
 
     private static void InsertInTemp(List<FinalEquip> final)
     {
@@ -47,7 +45,6 @@ public partial class StoredProcedures
             command.Parameters.Add(new SqlParameter("Group_ID", SqlDbType.Int));
             command.Parameters.Add(new SqlParameter("Title", SqlDbType.VarChar));
 
-
             foreach (var f in final)
             {
                 command.Parameters["ID"].Value = f.ID;
@@ -57,11 +54,9 @@ public partial class StoredProcedures
 
                 command.ExecuteNonQuery();
             }
-
         }
     }
 
-    static readonly string conntectStr = "context connection=true";
 
     private static List<FinalEquip> GetFinalList(List<NeedEquip> needEq, List<UniqueKOB> uniq)
     {
@@ -132,7 +127,6 @@ public partial class StoredProcedures
                 kob.Add(k);
             }
         }
-
         return kob;
     }
 
@@ -144,7 +138,6 @@ public partial class StoredProcedures
             connection.Open();
             SqlCommand command = new SqlCommand("SELECT * FROM [belwestDB].[dbo].[vw_belwestEquipmentOnGroup]", connection);
             SqlDataReader reader = command.ExecuteReader();
-
             using (reader)
             {
                 while (reader.Read())
@@ -152,7 +145,6 @@ public partial class StoredProcedures
                     var item = new EquipmentOnGroup()
                     {
                         Site_ID = reader.GetInt32(0),
-
                         KOB = reader.GetInt32(2),
                         KOBTitle = reader.GetString(1),
                         KOBCount = reader.GetInt32(3)
@@ -164,4 +156,3 @@ public partial class StoredProcedures
         }
     }
 }
-
