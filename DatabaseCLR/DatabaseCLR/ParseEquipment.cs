@@ -24,7 +24,9 @@ public partial class StoredProcedures
         InsertInTemp(final);
     }
 
-    static readonly string conntectStr = "context connection=true";
+    
+    // Строка подключения
+     static readonly string conntectStr = "context connection=true";
 
     private static void InsertInTemp(List<FinalEquip> final)
     {
