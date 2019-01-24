@@ -23,6 +23,12 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <PermissionSet>UNSAFE</PermissionSet>
+    <AssemblyOwner>someadmin</AssemblyOwner>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>sa.pfx</AssemblyOriginatorKeyFile>
+    <NonTransactedFileStreamAccess>FULL</NonTransactedFileStreamAccess>
+    <Trustworthy>True</Trustworthy>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -33,7 +39,8 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -45,7 +52,8 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -64,6 +72,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>C:\Users\trofi\source\repos\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="concat.cs" />
@@ -73,8 +84,14 @@
     <Compile Include="EntityParseEquipment\UniqueKOB.cs" />
     <Compile Include="EntityParseEquipment\FinalEquip.cs" />
     <Compile Include="EntityParseEquipment\NeedEquip.cs" />
+    <Compile Include="fn_get_equipment_oracle_db.cs" />
+    <Compile Include="EntityParseEquipment\RI_Conve3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="SelectEquipmentInGroups.sql" />
+    <Build Include="User1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sa.pfx" />
   </ItemGroup>
 </Project>

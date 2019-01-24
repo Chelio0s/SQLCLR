@@ -1,0 +1,10 @@
+USE test
+GO
+ exec sp_configure 'clr enabled', 1
+ reconfigure
+ EXEC sp_changedbowner 'sa'
+ ALTER DATABASE test  SET TRUSTWORTHY ON
+CREATE ASSEMBLY my
+
+FROM 'D:\DatabaseCLR.dll'
+WITH PERMISSION_SET = UNSAFE; 

@@ -1,0 +1,7 @@
+﻿CREATE USER [someadmin]
+	WITHOUT LOGIN
+	WITH DEFAULT_SCHEMA =  db_owner
+
+GO
+
+GRANT CONNECT TO [someadmin]
