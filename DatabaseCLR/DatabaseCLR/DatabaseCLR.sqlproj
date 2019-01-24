@@ -66,6 +66,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="EntityParseEquipment" />
+    <Folder Include="users" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,10 +87,11 @@
     <Compile Include="EntityParseEquipment\NeedEquip.cs" />
     <Compile Include="fn_get_equipment_oracle_db.cs" />
     <Compile Include="EntityParseEquipment\RI_Conve3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="SelectEquipmentInGroups.sql" />
-    <Build Include="User1.sql" />
+    <Build Include="users\someadmin.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sa.pfx" />
