@@ -23,7 +23,7 @@ public partial class UserDefinedFunctions
         string user = "SergeyTrofimov";
         string password = "jC7EGzQ1pX";
 
-        using (OracleConnection con = new OracleConnection(GetDBConnectionString(host, port, sid, user, password)))
+        using (OracleConnection con = new OracleConnection(OracleSettings.GetConnectionString()))
         {
             con.Open();
             
@@ -56,6 +56,13 @@ public partial class UserDefinedFunctions
         }
     }
 
+    /// <summary>
+    /// Метод описывающий как заполнять строку SQL данными из IEnumara
+    /// </summary>
+    /// <param name="RI_Conve3">Объект, который необходимо перевести в строку SQL</param>
+    /// <param name="NOMER">Выходной параметр</param>
+    /// <param name="WP">Выходной параметр</param>
+    /// <param name="KOB">Выходной параметр</param>
     public static void FillRow(object RI_Conve3, out SqlInt32 NOMER,
         out SqlInt32 WP, out SqlInt32 KOB)
     {
@@ -63,15 +70,5 @@ public partial class UserDefinedFunctions
         NOMER = ri.NOMER;
         WP = ri.WP;
         KOB = ri.KOB;
-
-    }
-
-    public static string
-        GetDBConnectionString(string host, int port, String sid, String user, String password)
-    {
-        string connString = "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = "
-                            + host + ")(PORT = " + port + "))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = "
-                            + sid + ")));Password=" + password + ";User ID=" + user;
-        return connString;
     }
 }

@@ -88,6 +88,8 @@
     <Compile Include="fn_get_equipment_oracle_db.cs" />
     <Compile Include="EntityParseEquipment\RI_Conve3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_clr_select_oracle.cs" />
+    <Compile Include="OracleSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="SelectEquipmentInGroups.sql" />
