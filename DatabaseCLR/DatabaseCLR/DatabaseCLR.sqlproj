@@ -25,7 +25,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <PermissionSet>UNSAFE</PermissionSet>
     <AssemblyOwner>someadmin</AssemblyOwner>
-    <SignAssembly>True</SignAssembly>
+    <SignAssembly>False</SignAssembly>
     <AssemblyOriginatorKeyFile>sa.pfx</AssemblyOriginatorKeyFile>
     <NonTransactedFileStreamAccess>FULL</NonTransactedFileStreamAccess>
     <Trustworthy>True</Trustworthy>
@@ -74,7 +74,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>C:\Users\trofi\source\repos\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -94,8 +94,5 @@
   <ItemGroup>
     <Build Include="SelectEquipmentInGroups.sql" />
     <Build Include="users\someadmin.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sa.pfx" />
   </ItemGroup>
 </Project>
