@@ -85,11 +85,12 @@
     <Compile Include="EntityParseEquipment\UniqueKOB.cs" />
     <Compile Include="EntityParseEquipment\FinalEquip.cs" />
     <Compile Include="EntityParseEquipment\NeedEquip.cs" />
-    <Compile Include="fn_get_equipment_oracle_db.cs" />
     <Compile Include="EntityParseEquipment\RI_Conve3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sp_clr_select_oracle.cs" />
     <Compile Include="OracleSettings.cs" />
+    <Compile Include="fn_get_bindequip_oracle.cs" />
+    <Compile Include="EntityParseEquipment\BindEquipment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="SelectEquipmentInGroups.sql" />
